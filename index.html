@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <title>Daily Checklist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell" aria-label="Daily checklist application">
+      <section class="phone">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow" id="todayLabel"></p>
+            <h1>Checklist</h1>
+          </div>
+          <div class="progress-ring" aria-label="Completion progress">
+            <span id="doneCount">0</span>
+            <small id="totalCount">/0</small>
+          </div>
+        </header>
+
+        <section class="status-panel">
+          <div>
+            <p class="panel-label">Today</p>
+            <p class="panel-text" id="statusText">Add your first task.</p>
+          </div>
+          <button class="icon-button" id="resetTodayButton" type="button" aria-label="Reset today">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </section>
+
+        <form class="add-form" id="taskForm" autocomplete="off">
+          <label class="sr-only" for="taskInput">Task name</label>
+          <input id="taskInput" name="task" type="text" maxlength="80" placeholder="Add a task..." required>
+          <button type="submit">Add</button>
+        </form>
+
+        <ul class="task-list" id="taskList" aria-live="polite"></ul>
+
+        <footer class="bottom-note">
+          Tasks reset to red automatically each new day.
+        </footer>
+      </section>
+    </main>
+
+    <template id="taskTemplate">
+      <li class="task-item">
+        <button class="check-button" type="button" aria-label="Toggle task">
+          <span aria-hidden="true">✓</span>
+        </button>
+        <span class="task-title"></span>
+        <button class="delete-button" type="button" aria-label="Delete task">
+          <span aria-hidden="true">×</span>
+        </button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
